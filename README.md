@@ -1,158 +1,198 @@
-# protocol-desk
 🚀 Protocol Desk
 
-Protocol Desk is a lightweight productivity tool designed to manage testnet projects, track daily activities, and organize useful Web3 resources — all in one place.
+A powerful, minimal, and offline-first productivity app to manage projects, habits, analytics, and focus mode — all in one place.
+
+---
+
+📌 Overview
+
+Protocol Desk is a lightweight web app designed to help you:
+
+- Track daily & weekly habits
+- Organize projects and activities
+- Visualize productivity through analytics
+- Stay focused using a distraction-free mode
+- Store useful resources and wallet info
+- Backup and restore your data anytime
+
+Everything runs locally in your browser using "localStorage" — no login, no tracking.
 
 ---
 
 ✨ Features
 
-📁 Project Management
+📁 Projects & Activities
 
-- Create and organize multiple projects
-- Archive/unarchive projects
+- Create unlimited projects
+- Add activities with:
+  - Daily or weekly frequency
+  - Optional targets
 - Drag & reorder projects
-
-✅ Activity Tracking
-
-- Daily & weekly task tracking
-- Streak system 🔥
-- Completion status (Done / Missed / Pending)
-
-📊 Analytics
-
-- Weekly completion insights
-- Activity heatmap
-- Progress visualization
-- Smart insights (weak habits, consistency, overload detection)
-
-🧠 Focus Mode
-
-- Shows only pending tasks
-- Helps complete tasks faster
-- Live progress tracking
-
-🔗 Resources Manager
-
-- Save useful links & notes
-- Quick access to Web3/testnet resources
-
-💰 Wallet Manager
-
-- Store wallet addresses
-- Copy with one click
-
-🔔 Smart Notifications
-
-- Daily reminder for unfinished tasks
-
-🔍 Search System
-
-- Search projects, resources, and settings
+- Archive & restore projects
 
 ---
 
-🌐 Live Demo
+🔁 Habit Tracking
 
-👉 https://lesssoul2.github.io/protocol-desk/
+- Daily completion tracking
+- Weekly goal tracking
+- Streak calculation
+- Missed day detection
+
+---
+
+📊 Analytics Dashboard
+
+- Today & weekly completion %
+- Per-project breakdown
+- Interactive weekly chart
+- Activity heatmap (last 84 days)
+- Smart insights (AI-like logic)
+
+---
+
+🧠 Smart Insights
+
+Automatically detects:
+
+- Weak habits (<40%)
+- Inconsistent habits
+- Strong habits (≥80%)
+- Missed streak breaks
+- Overloaded projects
+
+---
+
+🎯 Focus Mode
+
+- Shows only pending tasks
+- One-tap completion
+- Real-time progress bar
+
+---
+
+🔍 Search System
+
+- Search projects
+- Search resources
+- Smart filtering in settings
+
+---
+
+📚 Resources Manager
+
+- Save links with notes
+- Quick access & deletion
+
+---
+
+💼 Wallet Manager
+
+- Store addresses securely
+- Copy with one click
+- Clean UI display
+
+---
+
+💾 Backup & Restore
+
+- Export data as JSON
+- Import anytime
+- Preserves:
+  - Projects
+  - Activities
+  - History
+  - Resources
+  - Wallets
+
+---
+
+🧩 Advanced UI Features
+
+- Drag & drop with smooth animation
+- Long-press radial menu
+- Toast notifications
+- Animated insights
+- Responsive design
 
 ---
 
 🛠️ Tech Stack
 
-- HTML5
-- CSS3
-- Vanilla JavaScript (No frameworks)
-- LocalStorage (for data persistence)
-- Service Worker (PWA support)
+- Vanilla JavaScript (ES6)
+- HTML5 + CSS3
+- Chart.js (for analytics)
+- LocalStorage API
 
 ---
 
-📦 Installation
+📂 Data Structure
 
-Clone the repository:
+Projects
 
-git clone https://github.com/LESSSOUL2/protocol-desk.git
-
-Open the project:
-
-cd protocol-desk
-
-Run locally:
-
-- Just open "index.html" in your browser
-
----
-
-🚀 Deployment
-
-This project is deployed using GitHub Pages.
-
-To deploy:
-
-1. Go to Settings → Pages
-2. Select:
-   - Branch: "main"
-   - Folder: "/ (root)"
-3. Save
+{
+  "name": "Project Name",
+  "archived": false,
+  "activities": [
+    {
+      "name": "Activity",
+      "frequency": "daily | weekly",
+      "target": 1,
+      "history": {
+        "2026-04-09": true
+      }
+    }
+  ]
+}
 
 ---
 
-📱 PWA Support
+⚙️ Installation
 
-- Installable on mobile
-- Works offline (via service worker)
-- Fast loading
+1. Download or clone the project
+2. Open "index.html" in your browser
 
----
-
-⚠️ Known Issues
-
-- Service worker caching may delay updates
-  👉 Fix: Clear site data or open in incognito mode
+That’s it. No setup required.
 
 ---
 
-🔮 Future Improvements
+🔐 Security Note
 
-- Cloud sync (Firebase / Supabase)
-- User authentication
-- Cross-device sync
-- Dark/light theme toggle
-- Notifications customization
+When opening external links, use:
 
----
+window.open(url, "_blank", "noopener,noreferrer");
 
-👨‍💻 Creator
-
-LESSSOUL
-
-- X (Twitter): @L3SSSOUL
-- Telegram: @LESS_SOUL
-- GitHub: https://github.com/LESSSOUL2
+This prevents security risks from new tabs.
 
 ---
 
-📄 License
+📈 Future Improvements
 
-This project is licensed under the MIT License.
-
----
-
-💡 Inspiration
-
-Built to simplify testnet participation and productivity tracking without relying on heavy apps.
+- 🌐 Cloud sync (Firebase / Supabase)
+- 📱 PWA (Install as app)
+- 🤖 AI-powered insights
+- 🔔 Notifications / reminders
+- 🌙 Dark/light theme toggle
 
 ---
 
-⭐ Support
+👨‍💻 Author
 
-If you like this project:
+LESSSOUL 
 
-- ⭐ Star the repo
-- 🛠️ Contribute
-- 🐛 Report issues
+Built as a full-feature productivity system using pure JavaScript.
 
 ---
 
-«Built with ❤️ for Web3 builders»
+📜 License
+
+Free to use and modify for personal or educational purposes(but give me the credits)
+
+---
+
+💡 Final Note
+
+This is not just a habit tracker —
+it’s a complete personal productivity engine.
+
+Stay consistent. Stay focused. 🚀
