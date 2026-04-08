@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="theme-color" content="#000000">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="manifest" href="manifest.json">
+  <title>Testnet Tracker</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div id="app">
+
+  <!-- HEADER -->
+  <header class="header search-header">
+  <h1 id="headerTitle">Protocol Desk</h1>
+
+  <button id="searchToggle" class="search-btn hidden" aria-label="Search">
+  <svg viewBox="0 0 24 24">
+    <circle cx="11" cy="11" r="7"></circle>
+    <line x1="16.65" y1="16.65" x2="21" y2="21"></line>
+  </svg>
+</button>
+</header>
+
+<div id="searchBarContainer" class="search-container hidden">
+  <input type="text" id="searchInput" placeholder="Search..." autocomplete="off" />
+</div>
+
+  <main>
+
+<!-- ABOUT / HOME TAB -->
+<section class="tab active" id="aboutTab">
+  <div class="card">
+    <h2>Protocol Desk</h2>
+    <p>
+      Protocol Desk is a lightweight productivity tool for managing
+      testnet projects, tracking daily activities, and storing useful
+      Web3 resources in one place.
+    </p>
+  </div>
+
+  <div class="card">
+    <h3>Purpose</h3>
+    <p>
+      The goal of this tool is to simplify testnet participation
+      by organizing projects, activities, analytics, and links
+      without relying on multiple places.
+    </p>
+  </div>
+
+  <div class="card copyright-card">
+  <h3>Copyright</h3>
+
+  <p class="copyright-text">
+    © 2026 <strong>LESSSOUL</strong> • Version 1.1 (Stable)
+  </p>
+</div>
+
+  <div class="card">
+  <h3>Creator</h3>
+
+  <p class="creator-name">
+    <strong>LESSSOUL</strong>
+  </p>
+
+  <div class="creator-links">
+    <!-- X / Twitter -->
+    <a href="https://x.com/L3SSSOUL" target="_blank" aria-label="X">
+      <svg viewBox="0 0 24 24">
+        <path d="M18.9 2H22l-7.6 8.7L23 22h-6.8l-5.3-6.5L5.2 22H2l8.1-9.3L1 2h7l4.8 6.1L18.9 2z"/>
+      </svg>
+      <span>@L3SSSOUL</span>
+    </a>
+
+    <!-- Discord (display only) -->
+    <div class="no-link">
+      <svg viewBox="0 0 24 24">
+        <path d="M20 4a16 16 0 0 0-4-1l-.5 1a12 12 0 0 1 3.5 1.5A13 13 0 0 0 5 5.5 12 12 0 0 1 8.5 4L8 3a16 16 0 0 0-4 1C1.5 8.5 2 16 6 20c2 1.5 4 2 6 2s4-.5 6-2c4-4 4.5-11.5 2-16z"/>
+      </svg>
+      <span>less_soul</span>
+    </div>
+
+    <!-- Telegram -->
+    <a href="https://t.me/LESS_SOUL" target="_blank" aria-label="Telegram">
+      <svg viewBox="0 0 24 24">
+        <path d="M22 2L2 11l5 2 2 6 3-4 5 4z"/>
+      </svg>
+      <span>@LESS_SOUL</span>
+    </a>
+
+    <!-- GitHub -->
+    <a href="https://github.com/LESSSOUL2" target="_blank" aria-label="GitHub">
+      <svg viewBox="0 0 24 24">
+        <path d="M12 2a10 10 0 0 0-3 19c.5 0 .7-.2.7-.5v-2c-3 .7-3.7-1.3-3.7-1.3-.5-1.2-1.2-1.5-1.2-1.5-1-.7.1-.7.1-.7 1.1.1 1.7 1.1 1.7 1.1 1 .1 1.6-.7 2-.9a2.3 2.3 0 0 1 .7-1.4c-2.4-.3-5-1.2-5-5.3a4 4 0 0 1 1-2.8 3.7 3.7 0 0 1 .1-2.7s.9-.3 3 1a10.5 10.5 0 0 1 5.4 0c2-1.3 3-1 3-1a3.7 3.7 0 0 1 .1 2.7 4 4 0 0 1 1 2.8c0 4.1-2.6 5-5 5.3a2.6 2.6 0 0 1 .8 2v3c0 .3.2.5.7.5A10 10 0 0 0 12 2z"/>
+      </svg>
+      <span>LESSSOUL2</span>
+    </a>
+  </div>
+</div>
+
+</section>
+
+    <!-- HOME TAB -->
+    <section class="tab" id="homeTab">
+      <div class="card">
+        <h2>Projects</h2>
+        <p>Organize and manage your projects</p>
+      </div>
+
+      <div id="projectList"></div>
+
+      
+    </section>
+
+    <!-- PROJECT DETAIL TAB -->
+    <section class="tab" id="projectTab">
+      <button class="secondary-btn" id="backBtn">← Back</button>
+
+      <div class="card">
+  <h2 id="projectTitle"></h2>
+  <p>Project activities</p>
+</div>
+
+<div id="activityList"></div>
+      <button class="primary-btn" id="addActivityBtn">Add Activity</button>
+    </section>
+
+    <!-- ANALYTICS TAB -->
+<section class="tab" id="analyticsTab">
+
+  <div class="card">
+    <h2>Analytics</h2>
+    <p>Track your progress and performance</p>
+  </div>
+
+  <div id="analyticsOverview" class="card"></div>
+
+  <div id="projectAnalytics"></div>
+</section>
+
+<!-- ANALYTICS DETAIL TAB -->
+<section class="tab" id="analyticsDetailTab">
+  <button class="secondary-btn" id="backToAnalytics">← Back</button>
+
+  <div class="card">
+    <h2 id="analyticsProjectTitle"></h2>
+    <p>Detailed analytics</p>
+  </div>
+
+  <div id="analyticsDetailContent">
+</div>
+</section>
+
+<!-- RESOURCES TAB -->
+<section class="tab" id="resourcesTab">
+  <div class="card">
+    <h2>Resources</h2>
+    <p>Supporting links & tools</p>
+  </div>
+
+  <div id="resourcesList"></div>
+
+  <button class="primary-btn" id="addResourceBtn">
+    Add Resource
+  </button>
+</section>
+
+    <!-- SETTINGS TAB -->
+    <section class="tab" id="settingsTab">
+
+  <div class="card">
+    <h2>Settings</h2>
+    <p>Manage your app data and preferences</p>
+  </div>
+
+</section>
+
+<!-- ✅ ADD THIS SEPARATELY -->
+
+  <section class="tab" id="focusTab">
+
+  <button class="secondary-btn" id="backFromFocus">
+    ← Back
+  </button>
+
+  <div class="card">
+    <h2>Focus Mode</h2>
+    <p>Track your active tasks</p>
+  </div>
+
+<div class="focus-progress">
+  <div id="progressText">0/3 tasks done</div>
+  <div class="progress-bar">
+    <div id="progressFill"></div>
+  </div>
+</div>
+
+  <div id="focusContent"></div>
+
+</section>
+     
+
+  </main>
+
+</div>
+
+<button id="addProjectBtn" class="fab-btn">
+
+  <svg viewBox="0 0 24 24">
+    <path d="M12 5v14M5 12h14"
+      stroke="white"
+      stroke-width="2"
+      stroke-linecap="round"/>
+  </svg>
+</button>
+
+<!-- RADIAL MENU -->
+<div id="radialMenu">
+
+  <!-- Today Plan -->
+  <div class="radial-item" data-action="today">
+    <svg viewBox="0 0 24 24">
+      <path d="M7 2v3M17 2v3M3 8h18M5 12h4M5 16h4M13 12h6M13 16h6"/>
+    </svg>
+  </div>
+
+  <!-- Archive -->
+  <div class="radial-item archive" data-action="archive">
+  <span class="material-icons">🗑️</span>
+  <span class="label">Archive</span>
+</div>
+
+  <!-- Focus Mode -->
+  <div class="radial-item" data-action="focus">
+    <span class="material-icon">🔭</span>
+    <span class="label">Focus</span>
+  </div>
+
+</div>
+
+
+<!-- BOTTOM NAV -->
+<nav class="bottom-nav glass-nav">
+  <div class="glass-indicator"></div>
+
+  <!-- Home / About -->
+  <button data-tab="aboutTab" class="active" aria-label="Home">
+    <svg viewBox="0 0 24 24">
+      <path d="M3 10.5L12 3l9 7.5V21a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/>
+    </svg>
+  </button>
+
+  <!-- Projects -->
+  <button data-tab="homeTab" aria-label="Projects">
+    <svg viewBox="0 0 24 24">
+      <path d="M3 4h18v4H3zm0 6h18v4H3zm0 6h18v4H3z"/>
+    </svg>
+  </button>
+
+  <!-- Analytics -->
+  <button data-tab="analyticsTab" aria-label="Analytics">
+    <svg viewBox="0 0 24 24">
+      <path d="M4 20V10m6 10V4m6 16v-7m4 7H2"/>
+    </svg>
+  </button>
+
+  <!-- Settings -->
+  <button data-tab="settingsTab" aria-label="Settings">
+    <svg viewBox="0 0 24 24">
+      <path d="M12 8a4 4 0 1 1 0 8a4 4 0 0 1 0-8zm8 4a6.9 6.9 0 0 0-.1-1l2-1.6-2-3.4-2.4 1a7.4 7.4 0 0 0-1.7-1l-.4-2.6H9.6l-.4 2.6a7.4 7.4 0 0 0-1.7 1l-2.4-1-2 3.4 2 1.6a6.9 6.9 0 0 0 0 2l-2 1.6 2 3.4 2.4-1a7.4 7.4 0 0 0 1.7 1l.4 2.6h4.8l.4-2.6a7.4 7.4 0 0 0 1.7-1l2.4 1 2-3.4-2-1.6c.1-.3.1-.7.1-1z"/>
+    </svg>
+  </button>
+
+  <!-- Links -->
+  <button data-tab="resourcesTab" aria-label="Links">
+    <svg viewBox="0 0 24 24">
+      <path d="M10 14a5 5 0 0 1 0-7l2-2a5 5 0 0 1 7 7l-1 1M14 10a5 5 0 0 1 0 7l-2 2a5 5 0 0 1-7-7l1-1"/>
+    </svg>
+  </button>
+</nav>
+
+<!-- MODAL BACKDROP -->
+<div id="modalBackdrop" class="hidden"></div>
+
+<!-- INPUT MODAL -->
+<div id="inputModal" class="modal hidden">
+  <h3 id="modalTitle"></h3>
+  <input id="modalInput" placeholder="" />
+  <div class="modal-actions">
+  </div>
+</div>
+
+<!-- TOAST -->
+<div id="toast" class="toast hidden"></div>
+
+<!-- Chart library -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!-- Your app -->
+<script src="app.js"></script>
+</body>
+</html>
